@@ -13,7 +13,7 @@ public class IPokemonFactoryTest {
 
 @Before
 public void config() {
-	pokemon=new Pokemon(1,"Pikachu",55,40,35, 500, 35,1000,25, 0.85);
+	pokemon=new Pokemon(0,"Bulbizarre",126,126,90, 613, 64,4000,4, 56);
 	iPokemonFactory=mock(IPokemonFactory.class);
 }
 	
@@ -21,14 +21,14 @@ public void config() {
 
 @Test
 public void testCreatePokemon() {
-	when(iPokemonFactory.createPokemon(1,500, 35,1000,25)).thenReturn(pokemon);
-	Pokemon fakePokemon=iPokemonFactory.createPokemon(1,500, 35,1000,25);
+	when(iPokemonFactory.createPokemon(0,613, 64,4000,4)).thenReturn(pokemon);
+	Pokemon fakePokemon=iPokemonFactory.createPokemon(0,613, 64,4000,4);
 	assertNotNull(fakePokemon);
-	assertEquals(1, fakePokemon.getIndex());
-	assertEquals(500, fakePokemon.getCp());
-	assertEquals(35, fakePokemon.getHp());
-	assertEquals(1000, fakePokemon.getDust());
-	assertEquals(25, fakePokemon.getCandy());
+	assertEquals(0, fakePokemon.getIndex());
+	assertEquals(613, fakePokemon.getCp());
+	assertEquals(64, fakePokemon.getHp());
+	assertEquals(4000, fakePokemon.getDust());
+	assertEquals(4, fakePokemon.getCandy());
 
 
 }

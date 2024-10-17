@@ -18,8 +18,8 @@ public class IPokedexTest {
 @Before 
 public void config() {
 iPokedex=mock(IPokedex.class);	
-pokemon=new Pokemon(1,"Pikachu",55,40,35, 500, 35,1000,25, 0.85);
-pokemon2=new Pokemon(2,"Bulbasaur",49, 49,45, 450, 45,900, 20,0.90 );
+pokemon=new Pokemon(0,"Bulbizarre",126,126,90, 613, 64,4000,4, 56);
+pokemon2=new Pokemon(133,"Aquali",186, 168,260, 2729, 202,5000, 4,100 );
 pokemons.add(pokemon);
 pokemons.add(pokemon2);
 }

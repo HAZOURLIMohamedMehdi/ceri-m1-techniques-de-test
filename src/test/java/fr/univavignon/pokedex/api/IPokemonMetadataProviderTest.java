@@ -14,7 +14,7 @@ public class IPokemonMetadataProviderTest {
 
 	@Before
 	public void config() {
-		pokemon=new PokemonMetadata(1,"Pikachu",55,40,35);
+		pokemon=new PokemonMetadata(0,"Bulbizarre",126,126,90);
 		iPokemonMetadataProvider=mock(IPokemonMetadataProvider.class);
 	}
 		
@@ -22,14 +22,14 @@ public class IPokemonMetadataProviderTest {
 
 	@Test
 	public void testGetPokemonMetadata() throws PokedexException {
-		when(iPokemonMetadataProvider.getPokemonMetadata(1)).thenReturn(pokemon);
-		PokemonMetadata fakePokemon=iPokemonMetadataProvider.getPokemonMetadata(1);
+		when(iPokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(pokemon);
+		PokemonMetadata fakePokemon=iPokemonMetadataProvider.getPokemonMetadata(0);
 		assertNotNull(fakePokemon);
-		assertEquals(1, fakePokemon.getIndex());
-		assertEquals("Pikachu", fakePokemon.getName());
-		assertEquals(55, fakePokemon.getAttack());
-		assertEquals(40, fakePokemon.getDefense());
-		assertEquals(35, fakePokemon.getStamina());
+		assertEquals(0, fakePokemon.getIndex());
+		assertEquals("Bulbizarre", fakePokemon.getName());
+		assertEquals(126, fakePokemon.getAttack());
+		assertEquals(126, fakePokemon.getDefense());
+		assertEquals(90, fakePokemon.getStamina());
 
 		
 	}
