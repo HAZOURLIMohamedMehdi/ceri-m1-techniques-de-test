@@ -63,7 +63,7 @@ public void testGetPokemonsOrder() {
     pokemonsOrderByName.add(pokemon);
 	when(iPokedex.getPokemons(nameComparator)).thenReturn(Arrays.asList(pokemon2,pokemon));
 	
-	assertEquals(pokemonsOrderByName, iPokedex.getPokemons());
+	assertEquals(pokemonsOrderByName, iPokedex.getPokemons(nameComparator));
 }
 
 
