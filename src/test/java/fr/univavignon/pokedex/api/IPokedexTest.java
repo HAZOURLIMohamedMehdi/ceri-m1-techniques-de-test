@@ -38,7 +38,7 @@ public void testAddPokemon() {
 	when(iPokedex.addPokemon(pokemon)).thenReturn(1);
 	
 	assertEquals(1, iPokedex.addPokemon(pokemon));
-}
+} 
 
 @Test
 public void testGetPokemon() throws PokedexException {
