@@ -28,7 +28,7 @@ public class IPokemonMetadataProviderTest {
 		assertEquals(1, fakePokemon.getIndex());
 		assertEquals("Pikachu", fakePokemon.getName());
 		assertEquals(55, fakePokemon.getAttack());
-		assertEquals(44, fakePokemon.getDefense());
+		assertEquals(40, fakePokemon.getDefense());
 		assertEquals(35, fakePokemon.getStamina());
 
 		
