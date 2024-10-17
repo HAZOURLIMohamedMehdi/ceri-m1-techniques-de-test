@@ -1,5 +1,5 @@
 package fr.univavignon.pokedex.api;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
@@ -45,7 +45,7 @@ public void testGetPokemon() throws PokedexException {
 	when(iPokedex.getPokemon(1)).thenReturn(pokemon);
 	when(iPokedex.getPokemon(argThat(index-> index<0 || index>150))).thenThrow(new PokedexException ("Un index numérique (allant de 0 à 150)"));
 	assertTrue(pokemon.equals(iPokedex.getPokemon(1)));
-	assertEquals(PokedexException.class,iPokedex.getPokemon(500));
+	assertThrows(PokedexException.class,() ->iPokedex.getPokemon(500));
 }
 
 @Test
