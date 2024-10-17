@@ -43,8 +43,9 @@ public void testAddPokemon() {
 @Test
 public void testGetPokemon() throws PokedexException {
 	when(iPokedex.getPokemon(1)).thenReturn(pokemon);
-	
+	when(iPokedex.getPokemon(argThat(index-> index<0 || index>150))).thenThrow(new PokedexException ("Un index numérique (allant de 0 à 150)"));
 	assertTrue(pokemon.equals(iPokedex.getPokemon(1)));
+	assertEquals(PokedexException.class,iPokedex.getPokemon(500));
 }
 
 @Test
