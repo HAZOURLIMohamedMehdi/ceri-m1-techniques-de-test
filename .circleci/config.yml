@@ -16,6 +16,13 @@ jobs:
       - run:
           name: Run Tests
           command: mvn test  
+      - run:
+          name: run  tests / report           
+          command: mvn test jacoco:report       
+      - run:          
+          name: upload to Codecov         
+          command: bash <(curl -s https://codecov.io/bash)
+
   upload-to-codecov:
     docker:
       - image: maven:3.8.5-openjdk-11
