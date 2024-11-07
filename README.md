@@ -1,9 +1,13 @@
 # UCE Génie Logiciel Avancé : Techniques de tests
 
 **Nom et Prénom :** HAZOURLI Mohamed Mehdi
+
 **Groupe :** ALT
-![CircleCI](https://circleci.com/gh/HAZOURLIMohamedMehdi/ceri-m1-techniques-de-test/tree/main.svg?style=shield)
-![Codecov](https://codecov.io/gh/HAZOURLIMohamedMehdi/ceri-m1-techniques-de-test/branch/main/graph/badge.svg) 
+
+## Badges
+![CircleCI](https://circleci.com/gh/HAZOURLIMohamedMehdi/ceri-m1-techniques-de-test/tree/master.svg?style=shield)
+
+![Codecov](https://codecov.io/gh/HAZOURLIMohamedMehdi/ceri-m1-techniques-de-test.svg?style=shield) 
 
 ## Introduction
 
