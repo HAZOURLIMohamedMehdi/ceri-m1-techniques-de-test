@@ -1,5 +1,10 @@
 # UCE Génie Logiciel Avancé : Techniques de tests
 
+**Nom et Prénom :** HAZOURLI Mohamed Mehdi
+**Groupe :** ALT
+![CircleCI](https://circleci.com/gh/HAZOURLIMohamedMehdi/ceri-m1-techniques-de-test/tree/main.svg?style=shield)
+![Codecov](https://codecov.io/gh/HAZOURLIMohamedMehdi/ceri-m1-techniques-de-test/branch/main/graph/badge.svg) 
+
 ## Introduction
 
 Vous allez à travers ces projet mettre en application une partie des aspects évoqués en cours vis à vis des techniques de tests.  
