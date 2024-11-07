@@ -7,7 +7,8 @@
 ## Badges
 ![CircleCI](https://circleci.com/gh/HAZOURLIMohamedMehdi/ceri-m1-techniques-de-test/tree/master.svg?style=shield)
 
-![Codecov](https://codecov.io/gh/HAZOURLIMohamedMehdi/ceri-m1-techniques-de-test.svg?style=shield) 
+![Codecov](https://img.shields.io/codecov/c/github/HAZOURLIMohamedMehdi/ceri-m1-techniques-de-test.svg?style=shield) 
+
 
 ## Introduction
 
