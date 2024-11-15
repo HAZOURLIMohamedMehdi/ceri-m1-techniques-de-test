@@ -39,6 +39,16 @@ public void testAddPokemon() {
 } 
 
 @Test
+public void testCreatePokemon() {
+	Pokemon pokemon= iPokedex.createPokemon(0,613,64,4000,4);
+	assertNotNull(pokemon);
+	assertEquals(0, pokemon.getIndex());
+
+} 
+
+
+
+@Test
 public void testGetPokemon() throws PokedexException {
 	iPokedex.addPokemon(pokemon);
 	assertTrue(pokemon.equals(iPokedex.getPokemon(1)));

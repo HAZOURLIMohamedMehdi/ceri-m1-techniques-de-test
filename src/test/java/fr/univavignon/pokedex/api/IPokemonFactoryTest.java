@@ -18,6 +18,7 @@ public void testCreatePokemon() {
 	assertEquals(64, fakePokemon.getHp());
 	assertEquals(4000, fakePokemon.getDust());
 	assertEquals(4, fakePokemon.getCandy());
+	assertEquals(((126+126+90)/45), fakePokemon.getIv());
 
 
 }
