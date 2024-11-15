@@ -42,7 +42,7 @@ public void testAddPokemon() {
 public void testGetPokemon() throws PokedexException {
 	iPokedex.addPokemon(pokemon);
 	assertTrue(pokemon.equals(iPokedex.getPokemon(1)));
-	//assertThrows(PokedexException.class,() ->iPokedex.getPokemon(500));
+	assertThrows(PokedexException.class,() ->iPokedex.getPokemon(500));
 }
 
 @Test

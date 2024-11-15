@@ -21,4 +21,9 @@ public void testCreatePokemon() {
 
 
 }
+@Test
+public void testNullPokemon() {
+	assertThrows(PokedexException.class,() ->iPokemonFactory.createPokemon(889,613, 64,4000,4));
+
+}
 }
