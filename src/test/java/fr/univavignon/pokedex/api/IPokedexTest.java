@@ -55,7 +55,8 @@ public void testGetPokemons() {
 
 @Test
 public void testGetPokemonsOrder() {
-	
+	iPokedex.addPokemon(pokemon);
+	iPokedex.addPokemon(pokemon2);
     Comparator<Pokemon> nameComparator = Comparator.comparing(Pokemon::getName);
     List<Pokemon> pokemonsOrderByName=new ArrayList<Pokemon>();
     pokemonsOrderByName.add(pokemon2);
