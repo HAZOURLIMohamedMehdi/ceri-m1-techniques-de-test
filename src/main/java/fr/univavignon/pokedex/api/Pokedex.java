@@ -51,7 +51,7 @@ public class Pokedex implements IPokedex{
         if (id < 0 || id > pokemons.size()) {
             throw new PokedexException("Index invalide");
         }
-        return pokemons.get(id);
+        return pokemons.get(id-1);
     }
 
     @Override
