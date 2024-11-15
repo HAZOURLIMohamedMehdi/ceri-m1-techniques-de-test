@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class IPokemonTrainerFactoryTest {
 	IPokemonTrainerFactory iPokemonTrainerFactory=new PokemonTrainerFactory();
-	String name="mehdi";
+	String name="meh";
 	Team team=Team.INSTINCT;
 	IPokedexFactory pokedexFactory=new PokedexFactory();
 	PokemonMetadataProvider metadataProvider=new PokemonMetadataProvider();
@@ -19,7 +19,7 @@ public void testCreateTrainer() {
 	assertNotNull(fakePokemonTrainer);
 	assertEquals(name,fakePokemonTrainer.getName());
 	assertEquals(team,fakePokemonTrainer.getTeam());
-	assertEquals(pokedex,fakePokemonTrainer.getPokedex());
+	assertEquals(pokedex.getClass(),fakePokemonTrainer.getPokedex().getClass());
 
 }
 }

@@ -26,7 +26,8 @@ pokemons.add(pokemon2);
 
 @Test
 public void testSize() {
-	
+	iPokedex.addPokemon(pokemon);
+	iPokedex.addPokemon(pokemon2);
 	assertEquals(2, iPokedex.size());
 }
 
@@ -39,19 +40,23 @@ public void testAddPokemon() {
 
 @Test
 public void testGetPokemon() throws PokedexException {
+	iPokedex.addPokemon(pokemon);
 	assertTrue(pokemon.equals(iPokedex.getPokemon(1)));
 	assertThrows(PokedexException.class,() ->iPokedex.getPokemon(500));
 }
 
 @Test
 public void testGetPokemons() {
-	
+	iPokedex.addPokemon(pokemon);
+	iPokedex.addPokemon(pokemon2);
 	assertEquals(pokemons, iPokedex.getPokemons());
 }
 
 
 @Test
 public void testGetPokemonsOrder() {
+	iPokedex.addPokemon(pokemon);
+	iPokedex.addPokemon(pokemon2);
     Comparator<Pokemon> nameComparator = Comparator.comparing(Pokemon::getName);
     List<Pokemon> pokemonsOrderByName=new ArrayList<Pokemon>();
     pokemonsOrderByName.add(pokemon2);

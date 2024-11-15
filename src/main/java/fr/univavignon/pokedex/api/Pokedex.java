@@ -42,7 +42,8 @@ public class Pokedex implements IPokedex{
     @Override
     public int addPokemon(Pokemon pokemon) {
         pokemons.add(pokemon);
-        return nextId++;
+        ++nextId;
+        return nextId;
     }
 
     @Override
