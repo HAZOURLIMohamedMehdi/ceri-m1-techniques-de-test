@@ -10,38 +10,34 @@
 ![Codecov](https://img.shields.io/codecov/c/github/HAZOURLIMohamedMehdi/ceri-m1-techniques-de-test.svg?style=shield) 
 
 
-## Introduction
+# Pokedex Project
 
-Vous allez à travers ces projet mettre en application une partie des aspects évoqués en cours vis à vis des techniques de tests.  
-Pour cela nous allons réaliser un projet logiciel de petite taille, en suivant la roadmap suivante : 
-- Setup du projet
-- Mise en place des outils d’intégration continue
-- Écriture des tests unitaires
-- Écriture des mocks, et validation des tests
-- Développement dirigé par les tests
-- Documentation et conventions de style
-- Test d'une implémentation donnée
+## Composants principaux
 
-Durant cette série de TPs, le gestionnaire de version Git sera utilisé à foison, à travers la plateforme GitHub. Si vous n’êtes pas à l’aise avec cet outil[^1], [voici](http://rogerdudler.github.io/git-guide/) un petit guide à garder sous la main.
+### Pokedex
 
-## Sujets
+La classe **`Pokedex`** implémente l'interface **`IPokedex`** et permet de gérer une collection de Pokémon. Elle offre des fonctionnalités pour :
+- Ajouter des Pokémon (`addPokemon`).
+- Récupérer un Pokémon par son ID (`getPokemon`).
+- Obtenir la taille du Pokedex (`size`).
+- Créer des Pokémon avec un **`IPokemonFactory`** (`createPokemon`).
+- Trier les Pokémon selon un critère spécifique (`getPokemons`).
 
-L'ensemble des sujets de TPs peut être trouvé dans le dossier `TPs`.
+### PokemonFactory
 
-Le dossier `src` contient la définition de l'ensemble des interfaces qui seront l'objet de vos travaux.
+La classe **`PokemonFactory`** implémente **`IPokemonFactory`** et est responsable de la création des objets **`Pokemon`**. Elle génère un Pokémon à partir de son **index** et d'autres propriétés (CP, HP, dust, candy), en utilisant les métadonnées du Pokémon obtenues via **`PokemonMetadataProvider`**.
 
-## Rendus
+### PokemonMetadataProvider
 
-Le rendu des TPs se fait au rythme suivant :
+La classe **`PokemonMetadataProvider`** implémente **`IPokemonMetadataProvider`** et fournit des métadonnées sur les Pokémon (nom, attaque, défense, Stamina). Elle permet de récupérer les métadonnées d'un Pokémon à partir de son **index**. Si un Pokémon n'est pas trouvé, une **`PokedexException`** est lancée.
 
-- TP1 : 2ème séance
-- TP2 : 2ème séance
-- TP3 : 3ème séance
-- TP4 : 5ème séance
-- TP5 : dernière séance
-- TP6 : dernière séance
+### PokemonTrainerFactory
 
-Pour chaque rendu vous devez créer un tag à partir du commit qui correspond à la complétion du TP.  
-Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin de séance sera celui considéré.
+La classe **`PokemonTrainerFactory`** implémente **`IPokemonTrainerFactory`** et crée des Trainers Pokémon. Elle génère un **`PokemonTrainer`** avec un nom, une équipe (par exemple, **`Team.INSTINCT`**) et un **Pokedex**.
 
-[^1]: Si vous n’êtes vraiment pas à l’aise avec cet outil nous vous conseillons quand même vivement de vous y mettre.
+## Installation
+
+1. Clonez ce repository :
+   ```bash
+   git clone https://github.com/HAZOURLIMohamedMehdi/ceri-m1-techniques-de-test.git
+
