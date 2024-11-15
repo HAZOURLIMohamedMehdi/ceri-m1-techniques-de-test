@@ -7,6 +7,7 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider {
 
 
 public PokemonMetadataProvider(){
+    pokemonMetadata= new java.util.ArrayList<PokemonMetadata>();
     pokemonMetadata.add(new PokemonMetadata(0,"Bulbizarre",126,126,90));
     pokemonMetadata.add( new Pokemon(133,"Aquali",186, 168,260, 2729, 202,5000, 4,100 ));
 }
