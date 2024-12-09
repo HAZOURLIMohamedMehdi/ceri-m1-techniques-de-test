@@ -12,23 +12,23 @@ jobs:
 
       - run:
           name: Maven Build
-          command: mvn clean install
+          command: mvn clean install -X
 
       - run:
           name: Run Tests
-          command: mvn test
+          command: mvn test -X
 
       - run:
           name: Run Checkstyle
-          command: mvn checkstyle:check
+          command: mvn checkstyle:check -X
 
       - run:
           name: Generate Checkstyle Report
-          command: mvn checkstyle:checkstyle
+          command: mvn checkstyle:checkstyle -X
 
       - run:
           name: Generate JaCoCo Report
-          command: mvn jacoco:report
+          command: mvn jacoco:report -X
 
       - run:
           name: Upload to Codecov
