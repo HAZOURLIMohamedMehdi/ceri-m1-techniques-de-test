@@ -36,6 +36,7 @@
             <version>5.7.0</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -90,7 +91,6 @@
                 <configuration>
                     <configLocation>checkstyle.xml</configLocation>
                     <outputFile>${project.build.directory}/site/checkstyle-result.html</outputFile>
-                    <reportOutputDirectory>${project.build.directory}/site</reportOutputDirectory>
                     <encoding>UTF-8</encoding>
                     <consoleOutput>true</consoleOutput>
                     <failsOnError>true</failsOnError>
