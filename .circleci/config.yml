@@ -35,7 +35,7 @@ jobs:
           command: bash <(curl -s https://codecov.io/bash)
 
       - store_artifacts:
-          path: target/site/checkstyle.html
+          path: checkstyle.html
           destination: checkstyle_reports
 
 workflows:
