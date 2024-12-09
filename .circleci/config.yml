@@ -14,16 +14,12 @@ jobs:
           command: mvn clean install
 
       - run:
+          name: Generate Site and Checkstyle Report
+          command: mvn clean site
+
+      - run:
           name: Run Tests
           command: mvn test
-
-      - run:
-          name: Run Checkstyle
-          command: mvn checkstyle:check
-
-      - run:
-          name: Generate Checkstyle Report
-          command: mvn checkstyle:checkstyle
 
       - run:
           name: Generate JaCoCo Report
