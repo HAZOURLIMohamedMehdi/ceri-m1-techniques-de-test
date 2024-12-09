@@ -89,7 +89,8 @@
                 </executions>
                 <configuration>
                     <configLocation>checkstyle.xml</configLocation>
-                    <outputFile>${basedir}/checkstyle.html</outputFile>
+                    <outputFile>${project.build.directory}/site/checkstyle-result.html</outputFile>
+                    <reportOutputDirectory>${project.build.directory}/site</reportOutputDirectory>
                     <encoding>UTF-8</encoding>
                     <consoleOutput>true</consoleOutput>
                     <failsOnError>true</failsOnError>
