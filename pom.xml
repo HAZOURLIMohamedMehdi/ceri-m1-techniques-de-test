@@ -83,12 +83,13 @@
                     <execution>
                         <phase>validate</phase>
                         <goals>
-                            <goal>check</goal>
+                            <goal>checkstyle</goal>
                         </goals>
                     </execution>
                 </executions>
                 <configuration>
                     <configLocation>checkstyle.xml</configLocation>
+                    <outputFile>${basedir}/checkstyle.html</outputFile>
                     <encoding>UTF-8</encoding>
                     <consoleOutput>true</consoleOutput>
                     <failsOnError>true</failsOnError>
