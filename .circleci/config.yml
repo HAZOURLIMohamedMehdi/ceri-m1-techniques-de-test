@@ -43,7 +43,7 @@ jobs:
           destination: checkstyle_reports
 
       - run:
-          name: Deploy Javadoc to GitHub Pages
+          name: Javadoc GitHub Pages
           command: |
             git config --global user.name "HAZOURLI_Mohamed_Mehdi"
             git config --global user.email "mohamed-mehdi.hazourli@alumni.univ-avignon.fr"
@@ -53,9 +53,9 @@ jobs:
             if ! git show-ref --quiet refs/heads/gh-pages; then
               git checkout --orphan gh-pages
               git rm -rf .
-              echo "Initial commit for gh-pages" > index.html
+              echo "commit  1 gh-pages" > index.html
               git add index.html
-              git commit -m "Create gh-pages branch"
+              git commit -m "Create gh-pages Branch"
               git push origin gh-pages
             fi
             cd -
@@ -63,7 +63,7 @@ jobs:
             cp -R target/site/apidocs/* /tmp/gh-pages/
             cd /tmp/gh-pages
             git add .
-            git commit -m "Update JavaDoc"
+            git commit -m "UPDATE JavaDoc"
             git push origin gh-pages
 
 workflows:
