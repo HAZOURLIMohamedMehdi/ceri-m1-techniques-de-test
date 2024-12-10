@@ -43,11 +43,11 @@ jobs:
           destination: checkstyle_reports
 
       - run:
-          name: Deploy Javadoc GitHub Pages
+          name: Deploy Javadoc to GitHub Pages
           command: |
             git config --global user.name "CircleCI"
             git config --global user.email "ci@circleci.com"
-
+            git remote set-url origin https://$Github_token@github.com/HAZOURLIMohamedMehdi/ceri-m1-techniques-de-test.git
             git fetch origin gh-pages || git checkout --orphan gh-pages 
 
             mvn javadoc:javadoc
