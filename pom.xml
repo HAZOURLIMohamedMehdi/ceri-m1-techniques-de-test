@@ -90,7 +90,7 @@
                 </executions>
                 <configuration>
                     <configLocation>checkstyle.xml</configLocation>
-                    <outputFile>${basedir}/checkstyle.html</outputFile>
+                    <outputFile>./checkstyle.html</outputFile>
                     <consoleOutput>true</consoleOutput>
                     <failsOnError>true</failsOnError>
                 </configuration>
