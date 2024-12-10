@@ -9,7 +9,7 @@
 
 ![Codecov](https://img.shields.io/codecov/c/github/HAZOURLIMohamedMehdi/ceri-m1-techniques-de-test.svg?style=shield) 
 
-![Checkstyle](https://github.com/HAZOURLIMohamedMehdi/ceri-m1-techniques-de-test/actions/workflows/checkstyle.yml/badge.svg)
+![Checkstyle](https://img.shields.io/badge/Checkstyle-CheckStyle-green)
 
 # Pokedex Project
 
