@@ -53,7 +53,7 @@ jobs:
             mvn javadoc:javadoc
 
             mkdir -p docs
-            cp -R target/site/apidocs/* docs/  
+            cp -R target/reports/apidocs/* docs/  
 
             git add docs/*
             git commit -m "Update Javadoc"
