@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   codecov: codecov/codecov@4.0.1
+  gh-pages: peaceiris/actions-gh-pages@v3
 
 jobs:
   build:
@@ -31,12 +32,28 @@ jobs:
           command: mvn jacoco:report -X
 
       - run:
+          name: Generate Javadoc
+          command: mvn javadoc:javadoc
+
+      - run:
           name: Upload to Codecov
           command: bash <(curl -s https://codecov.io/bash)
 
       - store_artifacts:
           path: checkstyle.html
           destination: checkstyle_reports
+
+      - run:
+          name: Deploy Javadoc to GitHub Pages
+          command: |
+            git config --global user.name "CircleCI"
+            git config --global user.email "ci@circleci.com"
+            git clone --branch gh-pages https://github.com/HAZOURLIMohamedMehdi/ceri-m1-techniques-de-test.git gh-pages
+            cp -R target/site/apidocs/* gh-pages/
+            cd gh-pages
+            git add .
+            git commit -m "Update Javadoc"
+            git push origin gh-pages
 
 workflows:
   version: 2
