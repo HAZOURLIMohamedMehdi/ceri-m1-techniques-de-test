@@ -1,0 +1,78 @@
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@4.0.1
+
+jobs:
+  build:
+    docker:
+      - image: maven:3.8.5-openjdk-11
+    steps:
+      - checkout
+
+      - run:
+          name: Maven Build
+          command: mvn clean install -X
+
+      - run:
+          name: Run Tests
+          command: mvn test -X
+
+      - run:
+          name: Run Checkstyle
+          command: mvn checkstyle:check -X
+
+      - run:
+          name: Generate Checkstyle Report
+          command: mvn checkstyle:checkstyle -X
+
+      - run:
+          name: Generate JaCoCo Report
+          command: mvn jacoco:report -X
+
+      - run:
+          name: Generate Javadoc
+          command: mvn javadoc:javadoc
+
+      - run:
+          name: Upload to Codecov
+          command: bash <(curl -s https://codecov.io/bash)
+
+      - store_artifacts:
+          path: checkstyle.html
+          destination: checkstyle_reports
+
+      - run:
+          name: Javadoc GitHub Pages
+          command: |
+            git config --global user.name "HAZOURLI_Mohamed_Mehdi"
+            git config --global user.email "mohamed-mehdi.hazourli@alumni.univ-avignon.fr"
+            mkdir -p /tmp/gh-pages
+            git clone https://$Github_token@github.com/HAZOURLIMohamedMehdi/ceri-m1-techniques-de-test.git /tmp/gh-pages
+            cd /tmp/gh-pages
+            if ! git show-ref --quiet refs/heads/gh-pages; then
+              git checkout --orphan gh-pages
+              git rm -rf .
+              echo "commit  1 gh-pages" > index.html
+              git add index.html
+              git commit -m "Create gh-pages Branch"
+              git push origin gh-pages
+            fi
+            cd -
+            git checkout master
+            cp -R .circleci /tmp/gh-pages/
+            cp -R target/site/apidocs/* /tmp/gh-pages/
+            cd /tmp/gh-pages
+            git add .
+            git commit -m "UPDATE JavaDoc"
+            git push origin gh-pages
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
