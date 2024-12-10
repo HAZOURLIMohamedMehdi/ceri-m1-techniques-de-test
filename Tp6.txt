@@ -1,0 +1,5 @@
+La classe RocketPokemonFactory présente plusieurs problèmes par exemple
+une gestion faible des index négatifs,   attribuant des statistiques par défaut démesurées (1000) par exemple : attack,defense,stamina
+La table index2name est incomplète, limitant l'utilité de l'implémentation :   //TODO : Gotta map them all !
+et les IV sont fixés de manière rigide à 0 ou 1, sans variation.
+ces points rendent la classe incohérente et peu adaptée pour une utilisation réaliste.
