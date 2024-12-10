@@ -43,6 +43,15 @@ jobs:
           destination: checkstyle_reports
 
       - run:
+          name: Wait for GitHub Pages to be ready
+          command: |
+            echo "Waiting deployment to finish..."
+            while curl --head --silent https://github.com/HAZOURLIMohamedMehdi/ceri-m1-techniques-de-test.git | grep "200 OK" ; do
+              echo "GitHub busy. Waiting ..."
+              sleep 30
+            done
+
+      - run:
           name: Javadoc GitHub Pages
           command: |
             git config --global user.name "HAZOURLI_Mohamed_Mehdi"
