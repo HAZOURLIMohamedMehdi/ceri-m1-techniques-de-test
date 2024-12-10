@@ -34,7 +34,6 @@ jobs:
           name: Generate Javadoc
           command: mvn javadoc:javadoc
 
-
       - run:
           name: Upload to Codecov
           command: bash <(curl -s https://codecov.io/bash)
@@ -44,36 +43,23 @@ jobs:
           destination: checkstyle_reports
 
       - run:
-          name: Javadoc GitHub Pages Deployment
+          name: Javadoc GitHub Pages
           command: |
             git config --global user.name "HAZOURLI_Mohamed_Mehdi"
             git config --global user.email "mohamed-mehdi.hazourli@alumni.univ-avignon.fr"
             mkdir -p /tmp/gh-pages
             git clone https://$Github_token@github.com/HAZOURLIMohamedMehdi/ceri-m1-techniques-de-test.git /tmp/gh-pages
             cd /tmp/gh-pages
-            if ! git show-ref --quiet refs/heads/gh-pages; then
-              git checkout --orphan gh-pages
-              git rm -rf .
-              echo "commit  1 gh-pages" > index.html
-              git add index.html
-              git commit -m "Create gh-pages Branch"
-              git push origin gh-pages
-            else
-              git checkout gh-pages
-              git pull origin gh-pages
-            fi
-            cd -
 
-            if [ -d "target/site/apidocs" ]; then
-              cp -R target/site/apidocs/* /tmp/gh-pages/
-            else
-              echo "Javadoc not found, skipping copy."
-              exit 1
-            fi
+            git checkout gh-pages || git checkout --orphan gh-pages
 
-            cd /tmp/gh-pages
+            git fetch origin gh-pages
+
+            git merge origin/gh-pages --allow-unrelated-histories
+
+            cp -R target/site/apidocs/* /tmp/gh-pages/
             git add .
-            git commit -m "Update JavaDoc"
+            git commit -m "UPDATE JavaDoc"
             git push origin gh-pages
 
 workflows:
@@ -85,3 +71,4 @@ workflows:
             branches:
               only:
                 - master
+                - gh-pages
