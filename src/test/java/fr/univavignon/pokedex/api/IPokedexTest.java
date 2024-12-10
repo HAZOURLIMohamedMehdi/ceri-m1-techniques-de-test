@@ -9,7 +9,7 @@ import java.util.List;
 import org.junit.*;
 
 public class IPokedexTest {
-	PokedexFactory iPokedexFactory=new PokedexFactory();
+	PokedexFactory iPokedexFactory=new PokedexFactory() ;
 	PokemonMetadataProvider metadataProvider=new PokemonMetadataProvider();
 	IPokedex iPokedex=new Pokedex(metadataProvider, new PokemonFactory());
 	Pokemon pokemon;
