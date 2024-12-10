@@ -43,18 +43,22 @@ jobs:
           destination: checkstyle_reports
 
       - run:
-          name: Deploy Javadoc to GitHub Pages
+          name: Deploy Javadoc GitHub Pages
           command: |
             git config --global user.name "CircleCI"
             git config --global user.email "ci@circleci.com"
-            
-            git fetch origin gh-pages || git checkout --orphan gh-pages
-            git reset --hard origin/master  
-            cp -R target/site/apidocs/* gh-pages/ 
-            cd gh-pages
-            git add .
+
+            git fetch origin gh-pages || git checkout --orphan gh-pages 
+
+            mvn javadoc:javadoc
+
+            mkdir -p docs
+            cp -R target/site/apidocs/* docs/  
+
+            git add docs/*
             git commit -m "Update Javadoc"
-            git push origin gh-pages 
+
+            git push origin gh-pages
 
 workflows:
   version: 2
